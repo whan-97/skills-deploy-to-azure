@@ -30,7 +30,7 @@ jobs:
       - name: Create Azure resource group
         if: success()
         run: |
-          az group create --name ${{env.AZURE_RESOURCE_GROUP}} --location southeastasia --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
+         az appservice plan create --resource-group ${{env.AZURE_RESOURCE_GROUP}} --name ${{env.AZURE_APP_PLAN}} --is-linux --sku F1 --location eastus --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
 
       - name: Create Azure app service plan
         if: success()
