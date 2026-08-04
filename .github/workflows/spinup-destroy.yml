@@ -26,11 +26,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Create Azure resource group
-        if: success()
-        run: |
-          az group create --name ${{env.AZURE_RESOURCE_GROUP}} --location australiaeast --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
-
       - name: Create Azure app service plan
         if: success()
         run: |
